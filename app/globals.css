@@ -1,0 +1,25 @@
+/* Custom font classes for Tailwind */
+.font-avenir {
+  font-family: 'Avenir', system-ui, sans-serif;
+}
+.font-freight {
+  font-family: 'FreightBig Pro', serif;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile viewport height fix and safe top spacing utility */
+:root {
+  --header-height: 4rem; /* 64px matches h-16 */
+}
+
+.min-h-dvh { min-height: 100vh; }
+@supports (height: 100dvh) {
+  .min-h-dvh { min-height: 100dvh; }
+}
+
+.pt-safe { padding-top: var(--header-height); }
+@supports (padding-top: max(1px, 1px)) {
+  .pt-safe { padding-top: max(var(--header-height), env(safe-area-inset-top)); }
+}
